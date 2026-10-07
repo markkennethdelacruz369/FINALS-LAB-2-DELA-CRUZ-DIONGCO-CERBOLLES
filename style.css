@@ -1,0 +1,93 @@
+/* Colors used on the page */
+:root {
+  --bg: #f1f5f9;
+  --card: #ffffff;
+  --text: #1e293b;
+  --accent: #2563eb;
+  --success: #16a34a;
+  --error: #dc2626;
+}
+
+/* Page */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+}
+.app {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Header */
+.course { color: var(--accent); font-size: 14px; margin: 0; }
+h1 { margin: 5px 0 20px; }
+
+/* One card per feature */
+.card {
+  background: var(--card);
+  padding: 16px;
+  margin-bottom: 16px;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+h2 { margin: 0 0 10px; font-size: 18px; }
+code { color: var(--accent); }
+
+/* Student list shown as small badges */
+#list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0;
+  list-style: none;
+}
+.badge {
+  background: #e2e8f0;
+  padding: 5px 12px;
+  border-radius: 20px;
+}
+.badge i {
+  background: var(--accent);
+  color: white;
+  font-style: normal;
+  font-size: 12px;
+  padding: 2px 7px;
+  margin-right: 6px;
+  border-radius: 10px;
+}
+
+/* Input + button on one line */
+.row { display: flex; gap: 8px; }
+input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #94a3b8;
+  border-radius: 6px;
+}
+.btn {
+  padding: 8px 16px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.danger { background: var(--error); }
+
+/* Messages and output boxes */
+.msg { min-height: 20px; margin: 8px 0 0; font-size: 14px; }
+.msg.success { color: var(--success); }
+.msg.error { color: var(--error); }
+.output {
+  min-height: 40px;
+  margin: 8px 0 0;
+  padding: 10px;
+  background: var(--bg);
+  border-radius: 6px;
+  word-break: break-word;
+}

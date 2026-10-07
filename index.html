@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Class Record Manager</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header>
+      <p class="course">CCS114 · Web Technologies · Finals Laboratory 2</p>
+      <h1>Class Record Manager</h1>
+    </header>
+
+    <!-- Roster: shows the list, its length, and the Remove Last button -->
+    <section class="card">
+      <h2>Student roster</h2>
+      <p>Total students: <b id="length">0</b> <code>.length</code></p>
+      <ul id="list"></ul>
+      <button id="pop-btn" class="btn danger" type="button">Remove last <code>pop()</code></button>
+      <p id="pop-msg" class="msg"></p>
+    </section>
+
+    <!-- Add student -->
+    <section class="card">
+      <h2>Add student <code>push()</code></h2>
+      <div class="row">
+        <input id="add-in" type="text" placeholder="e.g. Maria Santos">
+        <button id="add-btn" class="btn" type="button">Add</button>
+      </div>
+      <p id="add-msg" class="msg"></p>
+    </section>
+
+    <!-- Find by index -->
+    <section class="card">
+      <h2>Find by index <code>at()</code></h2>
+      <div class="row">
+        <input id="find-in" type="text" placeholder="Index, starting at 0">
+        <button id="find-btn" class="btn" type="button">Find</button>
+      </div>
+      <p id="find-msg" class="msg"></p>
+    </section>
+
+    <!-- Join items -->
+    <section class="card">
+      <h2>Join items <code>join()</code></h2>
+      <div class="row">
+        <input id="join-in" type="text" value=" | ">
+        <button id="join-btn" class="btn" type="button">Join</button>
+      </div>
+      <p id="join-msg" class="msg"></p>
+      <p id="join-out" class="output"></p>
+    </section>
+
+    <!-- Convert to string -->
+    <section class="card">
+      <h2>Convert to string <code>toString()</code></h2>
+      <button id="str-btn" class="btn" type="button">Convert</button>
+      <p id="str-msg" class="msg"></p>
+      <p id="str-out" class="output"></p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
