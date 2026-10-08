@@ -24,10 +24,22 @@ function renderList() {
 }
 
 // 2. Add: takes a name, adds it with push()
+// Returns "" if the name was added, or an error message if the name is invalid
 function addStudent(name) {
-  if (name.trim() === "") return false;     // empty input is not allowed
-  students.push(name.trim());               // push()
-  return true;
+  const cleanName = name.trim();
+
+  if (cleanName === "") {
+    return "Please type a name first.";     // empty input is not allowed
+  }
+
+  // Letters and spaces only. Numbers and symbols are not allowed.
+  const lettersOnly = /^[\p{L} ]+$/u;
+  if (!lettersOnly.test(cleanName)) {
+    return "Name must contain letters only. Numbers and symbols are not allowed.";
+  }
+
+  students.push(cleanName);                 // push()
+  return "";
 }
 
 // 3. Remove last: removes and returns the last name with pop()
@@ -55,12 +67,14 @@ function convertToString() {
 // Add button
 document.getElementById("add-btn").addEventListener("click", function () {
   const input = document.getElementById("add-in");
-  if (addStudent(input.value)) {
+  const error = addStudent(input.value);
+
+  if (error === "") {
     showMessage("add-msg", "Student added!", false);
     input.value = "";
     renderList();
   } else {
-    showMessage("add-msg", "Please type a name first.", true);
+    showMessage("add-msg", error, true);
   }
 });
 
@@ -79,9 +93,9 @@ document.getElementById("pop-btn").addEventListener("click", function () {
 document.getElementById("find-btn").addEventListener("click", function () {
   const text = document.getElementById("find-in").value.trim();
 
-  // Validation: must be a whole number
-  if (text === "" || isNaN(text) || !Number.isInteger(Number(text))) {
-    showMessage("find-msg", "Invalid index. Enter a whole number.", true);
+  // Validation: digits only (0, 1, 2, ...). No negatives, decimals, or letters.
+  if (!/^[0-9]+$/.test(text)) {
+    showMessage("find-msg", "Invalid index. Enter a whole number starting from 0.", true);
     return;
   }
 
@@ -89,7 +103,7 @@ document.getElementById("find-btn").addEventListener("click", function () {
   if (found === undefined) {
     showMessage("find-msg", "Index out of range.", true);   // no item at that index
   } else {
-    showMessage("find-msg", "Index " + text + ": " + found, false);
+    showMessage("find-msg", "Index " + Number(text) + ": " + found, false);
   }
 });
 
